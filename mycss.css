@@ -1,0 +1,26 @@
+.margin-t-visiting{
+	margin-top: -19px;
+}
+.dot {
+  height: 100%;
+  width: 100%;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.bg-color{
+  background-color: #D3DCC7;
+}
+/* .my-scale{
+  transform: scale(0.8);
+} */
+
+/* css bootstrap */
+
+
+/* footer css */
+/* button color */
+.btn-grey{
+  background:#D3DCC7!important ;
+  --bs-btn-hover-border-color: #929a89;
+}

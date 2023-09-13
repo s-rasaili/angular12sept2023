@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>test visiting card</title>
+	<!-- bootstrap 5 cdn -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<!-- angular js cdn -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+	<!-- favicon -->
+	<!-- Custom styles for this template -->
+
+	<!-- jquery cdn-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+	<!-- jspdf library cdn -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<!-- <script src="./js/jspdf.es.min.js"></script> -->
+	<!-- mycss -->
+	<link rel="stylesheet" type="text/css" href="mycss.css">
+	<script>
+		// window.jsPDF = window.jspdf.jsPDF;
+		// var docPDF = new jsPDF();
+		// function print(){
+		// var elementHTML = document.querySelector("#content");
+		// docPDF.html(elementHTML, {
+		// callback: function(docPDF) {
+		// docPDF.save('visitingcard.pdf');
+		// },
+		// x: 50,
+		// y: 50,
+		// width: 170,
+		// windowWidth: 650
+		// });
+		// }
+
+		//new code
+		window.jsPDF = window.jspdf.jsPDF;
+		var doc = new jsPDF();
+
+		// Convert HTML content to PDF
+		function Convert_HTML_To_PDF() {
+    	var doc = new jsPDF();
+	
+    // Source HTMLElement or a string containing HTML.
+    	var elementHTML = document.querySelector("#contentToPrint");
+
+    	doc.html(elementHTML, {
+        callback: function(doc) {
+            // Save the PDF
+			doc.addImage("./img/photo1.jpg", "JPEG", 15, 40, 180, 180);
+            doc.save('document-html.pdf');
+        },
+        margin: [10, 10, 10, 10],
+        autoPaging: 'text',
+        x: 0,
+        y: 0,
+        width: 150, //target width in the PDF document
+        windowWidth: 675 //window width in CSS pixels
+    });
+}
+
+// window.jsPDF = window.jspdf.jsPDF;
+// var doc = new jsPDF();
+
+//  function saveDiv(divId) {
+//  doc.fromHTML('pdf').document.getElementById(divId).innerHTML;
+//  doc.save('div.pdf');
+// }
+
+// function printDiv(divId) {
+
+//   let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+
+//   mywindow.document.write(document.getElementById(divId).innerHTML);
+
+//   mywindow.document.close(); // necessary for IE >= 10
+//   mywindow.focus(); // necessary for IE >= 10*/
+
+//   mywindow.print();
+//   mywindow.close();
+
+//   return true;
+// }
+	</script>
+</head>
+<body class="bg-color">
+
+	<div class="container mt-0 bg-white p-4 shadow" ng-app="">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="text-center">
+					<p class="bg-warning text-dark p-4 fw-bold">User Input</p>
+				</div>
+				<div class="mb-3 me-5">
+					<label class="form-label">Name</label>
+					<input type="text" ng-model="name" class="form-control">
+				</div>
+				<div class="mb-3 me-5">
+					<label class="form-label">Mob.No.</label>
+					<input type="number" ng-model="mobile_num" class="form-control">
+				</div>
+				<div class="mb-3 me-5">
+					<label class="form-label">Address</label>
+					<!-- <input type="password"  id="exampleInputPassword1"> -->
+					<textarea ng-model="my_address" class="form-control" name="" cols="3" rows="3"></textarea>
+				</div>
+				<div class="mb-3 me-5">
+					<label class="form-label">Email</label>
+					<input type="text" ng-model="email" class="form-control">
+				</div>
+			</div>
+
+			<!-- <div id="content" class="col-md-6"> -->
+			<div id="contentToPrint" class="col-md-6">
+			<!-- <div id="pdf" class="col-md-6"> -->
+				<div class="text-center">
+					<p class="bg-warning text-dark p-4 fw-bold">Preview</p>
+				</div>
+				<div id="card" class="card">
+					<div class="card-body border border border-dark border-2 rounded">
+						<div class="row g-5 margin-t-visiting justifiy-content-center align-item-center">
+							<div class="col-md-6">
+								Name: {{name}}
+							</div>
+							<div class="col-md-6">
+								Mobile: {{mobile_num}}
+							</div>
+							<div class="col-md-6">
+								Add: {{my_address}}
+							</div>
+							<div class="col-md-6">
+								<img src="./img/photo1.jpg" id="ïmg" class="rounded-circle img-responsive w-100 shadow" alt="Cinque Terre">
+							</div>
+							<div class="col-md-6 margin-t-visiting">
+								Email: {{email}}
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	
+		<div class="row mt-2 mb-4">
+			<div class="col-md-12 text-center">
+				<!-- <button type="button" id="printButton" class="btn btn-primary" onclick="print()">Download as pdf</button> -->
+				<button type="button" id="printButton" class="btn btn-primary" onclick="Convert_HTML_To_PDF()">Download as pdf</button>
+				<!-- <button type="button" id="printButton" class="btn btn-primary" onclick="saveDiv('pdf')">Download as pdf</button> -->
+				<button type="button" id="GREY_BUTTON" class="btn btn-grey">GREY</button>
+				<button type="button" id="RED_BUTTON" class="btn btn-danger">RED</button>
+				<button type="button" id="YELLOW_BUTTON" class="btn btn-warning">YELLOW</button>
+			</div>
+		</div>
+	
+		<!-- footer -->
+		<div class="container">
+			<div class="text-center bg-danger p-4">
+				<span class="text-white">Copyright @ Sachin Rasaili</span>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <script src="./js/html2pdf.bundle.min.js">
+		const button = document.getElementById('download-button');
+	
+		function generatePDF() {
+			// Choose the element that your content will be rendered to.
+			const element = document.getElementById('content');
+			// Choose the element and save the PDF for your user.
+			html2pdf().from(element).save();
+		}
+	
+		button.addEventListener('click', generatePDF);
+	</script> -->
+
+<script>
+	$(document).ready(function(){
+		$("#GREY_BUTTON").click(function(){
+			$("#card").addClass("bg-color");
+			$("#card").removeClass("bg-danger");
+			$("#card").addClass("text-black");
+			$("#card").removeClass("bg-warning");
+		});
+		$("#RED_BUTTON").click(function(){
+			$("#card").addClass("bg-danger");
+			$("#card").addClass("text-white");
+		});
+		$("#YELLOW_BUTTON").click(function(){
+			$("#card").removeClass("bg-danger");
+			$("#card").addClass("text-black");
+			$("#card").removeClass("bg-danger");
+			$("#card").removeClass("text-white");
+			$("#card").addClass("bg-warning");
+		});
+	});
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
