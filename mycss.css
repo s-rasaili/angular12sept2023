@@ -2,6 +2,10 @@
     margin-top: -19px;
 }
 
+html body {
+    scroll-behavior: smooth;
+}
+
 
 /* Chrome, Safari, Edge, Opera */
 
