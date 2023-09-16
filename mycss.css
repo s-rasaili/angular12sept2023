@@ -1,26 +1,95 @@
-.margin-t-visiting{
-	margin-top: -19px;
+.margin-t-visiting {
+    margin-top: -19px;
 }
+
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .dot {
-  height: 100%;
-  width: 100%;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
 }
-.bg-color{
-  background-color: #D3DCC7;
+
+.bg-color {
+    background-color: #D3DCC7;
 }
+
+
 /* .my-scale{
   transform: scale(0.8);
 } */
+
 
 /* css bootstrap */
 
 
 /* footer css */
+
+
 /* button color */
-.btn-grey{
-  background:#D3DCC7!important ;
-  --bs-btn-hover-border-color: #929a89;
+
+.btn-grey {
+    background: #D3DCC7!important;
+    --bs-btn-hover-border-color: #929a89;
 }
+
+
+/* media query for small screen */
+
+@media screen and ( max-width:426px) {
+    .form-control {
+        width: 114% !important;
+    }
+    .rounded-circle {
+        position: absolute;
+        top: 32px !important;
+        left: 161px !important;
+        width: 60% !important;
+        transform: scale(0.7)!important;
+    }
+}
+
+@media screen and ( max-width:375px) {
+    .form-control {
+        width: 117% !important;
+    }
+    .rounded-circle {
+        position: absolute;
+        top: -12px !important;
+        left: 163px !important;
+        width: 60% !important;
+        transform: scale(0.5)!important;
+    }
+}
+
+@media screen and ( max-width:320px) {
+    .form-control {
+        width: 121% !important;
+    }
+    .rounded-circle {
+        position: absolute;
+        top: -9px !important;
+        left: 135px !important;
+        width: 60% !important;
+        transform: scale(0.5)!important;
+    }
+}
+
+
+/* screen 1024 */
+
+
+/* @media screen and ( max-width:320px) {
+    input {
+        width: 112% !important;
+    }
+} */
